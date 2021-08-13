@@ -8,7 +8,7 @@
 
     try{
 
-        const maytables = await userModel.find();
+        const maytables = await signUpTemplateCopy.find();
         return res.json({maytables});
 
     } catch (error) {

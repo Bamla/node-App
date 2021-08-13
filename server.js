@@ -17,7 +17,7 @@ app.use(express.json())
 app.use(cors())
 app.use('/app',routesUrls)
 
-app.listen(4000, () => 
+app.listen(process.env.PORT, () => 
     connectDB()
     .then((data) => console.log('Listening on 4000 http://localhost:4000/', data))
     .catch((err) => console.log(err))

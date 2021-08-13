@@ -2,6 +2,20 @@
  const router = express.Router();
  const signUpTemplateCopy = require('../models/SignUpModels')
  const bcrypt = require('bcrypt')
+ 
+ 
+ router.get('/', async(req, res) => {
+
+    try{
+
+        const maytables = await userModel.find();
+        return res.json({maytables});
+
+    } catch (error) {
+       return res.status(500).json({error : error.message});
+    }
+    
+});
 
 
  router.post('/signup', async(req, res) => {

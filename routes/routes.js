@@ -9,7 +9,7 @@
 
     try{
 
-        const maytables = await signUpTemplateCopy.find();
+        const users = await signUpTemplateCopy.find();
         return res.json({users});
 
     } catch (error) {
@@ -22,7 +22,7 @@
 
     try{
 
-        const maytables = await signUpTemplateCopy.find();
+        const somethings = await AddSomethingTemplateCopy.find();
         return res.json({somethings});
 
     } catch (error) {

@@ -1,10 +1,24 @@
  const express = require('express');
  const router = express.Router();
  const signUpTemplateCopy = require('../models/SignUpModels')
+ const AddSomethingTemplateCopy = require('../models/AddSomethingModels')
  const bcrypt = require('bcrypt')
  
  
  router.get('/', async(req, res) => {
+
+    try{
+
+        const maytables = await signUpTemplateCopy.find();
+        return res.json({maytables});
+
+    } catch (error) {
+       return res.status(500).json({error : error.message});
+    }
+    
+});
+
+ router.get('/view', async(req, res) => {
 
     try{
 
@@ -35,5 +49,23 @@
          res.json(err)
      })
  })
+
+ router.post('/something', async(req, res) => {
+    
+
+    const addSomething = new AddSomethingTemplateCopy({
+        name: req.body.name,
+        type: req.body.type,
+        quantity: req.body.quantity,
+        price: req.body.price,
+    })
+    addSomething.save()
+    .then(data => {
+        res.json(data)
+    })
+    .catch(err => {
+        res.json(err)
+    })
+})
 
  module.exports = router;

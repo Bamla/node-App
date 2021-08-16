@@ -10,7 +10,7 @@
     try{
 
         const maytables = await signUpTemplateCopy.find();
-        return res.json({maytables});
+        return res.json({users});
 
     } catch (error) {
        return res.status(500).json({error : error.message});
@@ -23,7 +23,7 @@
     try{
 
         const maytables = await signUpTemplateCopy.find();
-        return res.json({maytables});
+        return res.json({somethings});
 
     } catch (error) {
        return res.status(500).json({error : error.message});

@@ -19,4 +19,4 @@ const signUpTemplate = new mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model('maytable', signUpTemplate);
+module.exports = mongoose.model('users', signUpTemplate);

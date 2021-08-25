@@ -36,7 +36,7 @@
 
     try{
 
-        const somethings = await InvoiceTemplateCopy.find();
+        const invoice = await InvoiceTemplateCopy.find();
         return res.json({invoice});
 
     } catch (error) {

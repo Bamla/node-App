@@ -82,7 +82,7 @@
     })
 })
 
- router.post('/newinvoice', async(req, res) => {
+ router.post('/addinvoice', async(req, res) => {
     
 
     const addInvoice = new InvoiceTemplateCopy({

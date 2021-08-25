@@ -2,6 +2,7 @@
  const router = express.Router();
  const signUpTemplateCopy = require('../models/SignUpModels')
  const AddSomethingTemplateCopy = require('../models/AddSomethingModels')
+ const InvoiceTemplateCopy  = require('../models/InvoiceModels')
  const bcrypt = require('bcrypt')
  
  
@@ -24,6 +25,19 @@
 
         const somethings = await AddSomethingTemplateCopy.find();
         return res.json({somethings});
+
+    } catch (error) {
+       return res.status(500).json({error : error.message});
+    }
+    
+});
+
+ router.get('/viewinvoice', async(req, res) => {
+
+    try{
+
+        const somethings = await InvoiceTemplateCopy.find();
+        return res.json({invoice});
 
     } catch (error) {
        return res.status(500).json({error : error.message});
@@ -60,6 +74,28 @@
         price: req.body.price,
     })
     addSomething.save()
+    .then(data => {
+        res.json(data)
+    })
+    .catch(err => {
+        res.json(err)
+    })
+})
+
+ router.post('/newinvoice', async(req, res) => {
+    
+
+    const addInvoice = new InvoiceTemplateCopy({
+        name: req.body.name,
+        contact: req.body.name,
+        type: req.body.type,
+        items: req.body.name,
+        price: req.body.name,
+        quantity: req.body.quantity,
+        total: req.body.price,
+        file: req.body.name,
+    })
+    addInvoice.save()
     .then(data => {
         res.json(data)
     })
